@@ -3,16 +3,16 @@ name: Deploy Alpine VM to MicroStack
 on:
   push:
     branches:
-      - main  # Déclenche le déploiement quand tu push sur main
+      - main
 
 jobs:
   deploy:
-    runs-on: self-hosted  # Utilise ton runner local
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-        - name: Create VM on OpenStack
+      - name: Create VM on OpenStack
         env:
           OS_AUTH_URL: ${{ secrets.OS_AUTH_URL }}
           OS_USERNAME: ${{ secrets.OS_USERNAME }}
@@ -22,7 +22,7 @@ jobs:
           OS_PROJECT_DOMAIN_NAME: "Default"
         run: |
           openstack server create \
-            --image Alpine \
+            --image "Alpine" \
             --flavor Minus \
             --network LAN-LABO \
             --security-group SG-LABO \
