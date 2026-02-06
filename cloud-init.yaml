@@ -4,8 +4,8 @@ users:
     sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/sh
     ssh_authorized_keys:
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOjEQKDCHy7xujuPFRXv6hCxYIfQ6TkxzeGPRWPy+fKE gaetan@tp-openstack
-
+      
+      
 packages:
   - nginx
 
