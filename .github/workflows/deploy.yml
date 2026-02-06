@@ -21,7 +21,10 @@ jobs:
           OS_PROJECT_NAME: ${{ secrets.OS_PROJECT_NAME }}
           OS_USER_DOMAIN_NAME: "Default"
           OS_PROJECT_DOMAIN_NAME: "Default"
-        run: |                 
+        run: |
+          sudo /snap/bin/microstack.openstack server delete VM-Alpine-Gaetan || true
+
+          
           sudo /snap/bin/microstack.openstack server create \
             --image "Alpine" \
             --flavor Minus \
@@ -30,3 +33,11 @@ jobs:
             --user-data /var/snap/microstack/common/var/cloud-init.yaml \
             --key-name ma-cle-openstack \
             VM-Alpine-Gaetan
+
+          
+          FLOATING_IP=$(sudo /snap/bin/microstack.openstack floating ip create external -f value -c floating_ip_address)
+          sudo /snap/bin/microstack.openstack server add floating ip VM-Alpine-Gaetan $FLOATING_IP
+          
+          
+          echo "Succès ! VM accessible via : $FLOATING_IP"
+          
