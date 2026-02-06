@@ -22,6 +22,8 @@ jobs:
           OS_USER_DOMAIN_NAME: "Default"
           OS_PROJECT_DOMAIN_NAME: "Default"
         run: |
+          chmod 644 cloud-init.yaml
+          
           sudo /snap/bin/microstack.openstack server create \
             --image "Alpine" \
             --flavor Minus \
