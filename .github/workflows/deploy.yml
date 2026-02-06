@@ -22,13 +22,13 @@ jobs:
           OS_USER_DOMAIN_NAME: "Default"
           OS_PROJECT_DOMAIN_NAME: "Default"
         run: |
-          chmod 644 cloud-init.yaml
+          chmod 644 /var/snap/microstack/common/varcloud-init.yaml
           
           sudo /snap/bin/microstack.openstack server create \
             --image "Alpine" \
             --flavor Minus \
             --network LAN-LABO \
             --security-group SG-LABO \
-            --user-data cloud-init.yaml \
+            --user-data /var/snap/microstack/common/var/cloud-init.yaml \
             --key-name ma-cle-openstack \
             VM-Alpine-Gaetan
