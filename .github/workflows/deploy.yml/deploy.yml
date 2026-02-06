@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch: 
 
 jobs:
   deploy:
@@ -22,7 +23,6 @@ jobs:
           OS_PROJECT_DOMAIN_NAME: "Default"
         run: |
           openstack server create \
-            --image "Alpine" \
             --flavor Minus \
             --network LAN-LABO \
             --security-group SG-LABO \
