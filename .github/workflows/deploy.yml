@@ -31,7 +31,6 @@ jobs:
             --network LAN-LABO \
             --security-group SG-LABO \
             --user-data /var/snap/microstack/common/var/cloud-init.yaml \
-            --key-name ma-cle-openstack \
             VM-Alpine-Gaetan
 
           
