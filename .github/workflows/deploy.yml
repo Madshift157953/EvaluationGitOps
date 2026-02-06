@@ -39,5 +39,5 @@ jobs:
           sudo /snap/bin/microstack.openstack server add floating ip VM-Alpine-Gaetan $FLOATING_IP
           
           
-          echo "Succès ! VM accessible via : $FLOATING_IP" 
+          echo "Succès ! VM accessible via : $FLOATING_IP"
           
