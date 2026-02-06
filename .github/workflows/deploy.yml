@@ -21,9 +21,7 @@ jobs:
           OS_PROJECT_NAME: ${{ secrets.OS_PROJECT_NAME }}
           OS_USER_DOMAIN_NAME: "Default"
           OS_PROJECT_DOMAIN_NAME: "Default"
-        run: |
-          chmod 644 /var/snap/microstack/common/varcloud-init.yaml
-          
+        run: |                 
           sudo /snap/bin/microstack.openstack server create \
             --image "Alpine" \
             --flavor Minus \
