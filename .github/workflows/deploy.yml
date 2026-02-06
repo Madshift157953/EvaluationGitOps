@@ -23,7 +23,7 @@ jobs:
           OS_PROJECT_DOMAIN_NAME: "Default"
         run: |
           sudo /snap/bin/microstack.openstack server create \
-            --image Alpine \
+            --image "Alpine" \
             --flavor Minus \
             --network LAN-LABO \
             --security-group SG-LABO \
